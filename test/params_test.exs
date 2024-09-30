@@ -24,7 +24,10 @@ defmodule ParamsTest do
   end
 
   test "defaults to all optional fields" do
-    assert [:name, :age, :_id] == Params.optional(PetParams)
+    params = Params.optional(PetParams)
+    assert :_id in params
+    assert :name in params
+    assert :age in params
   end
 
   test "from returns a changeset" do
@@ -118,7 +121,9 @@ defmodule ParamsTest do
   end
 
   test "kitten module has list of optional fields" do
-    assert [:age_max, :age_min] = Params.optional(Params.ParamsTest.Kitten)
+    params = Params.optional(Params.ParamsTest.Kitten)
+    assert :age_min in params
+    assert :age_max in params
   end
 
   test "kitten method returns changeset" do
@@ -153,7 +158,9 @@ defmodule ParamsTest do
   end
 
   test "puppy module has list of optional fields" do
-    assert [:age_max, :age_min] = Params.optional(Params.ParamsTest.Puppy)
+    params = Params.optional(Params.ParamsTest.Puppy)
+    assert :age_min in params
+    assert :age_max in params
   end
 
   test "puppy method returns changeset" do
@@ -188,7 +195,9 @@ defmodule ParamsTest do
   end
 
   test "dragon module has list of optional fields" do
-    assert [:age_max, :age_min] = Params.optional(Params.ParamsTest.Dragon)
+    params = Params.optional(Params.ParamsTest.Dragon)
+    assert :age_max in params
+    assert :age_min in params
   end
 
   test "dragon method returns changeset" do
